@@ -1,0 +1,16 @@
+{
+    "name": "Infohazard.PackageInstaller.Editor",
+    "rootNamespace": "Infohazard.PackageInstaller.Editor",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
