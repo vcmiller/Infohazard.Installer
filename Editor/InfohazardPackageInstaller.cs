@@ -139,7 +139,7 @@ namespace Infohazard.PackageInstaller.Editor {
 
         private string _gitModulesPath;
 
-        [MenuItem("Infohazard/Installer")]
+        [MenuItem("Tools/Infohazard/Installer")]
         public static void ShowWindow() {
             var window = GetWindow<InfohazardPackageInstallerWindow>();
             window.titleContent = new GUIContent("Package Installer");
