@@ -141,7 +141,7 @@ namespace Infohazard.PackageInstaller.Editor {
 
         [MenuItem("Tools/Infohazard/Installer")]
         public static void ShowWindow() {
-            var window = GetWindow<InfohazardPackageInstallerWindow>();
+            InfohazardPackageInstallerWindow window = GetWindow<InfohazardPackageInstallerWindow>();
             window.titleContent = new GUIContent("Package Installer");
             window.Show();
         }
@@ -286,7 +286,7 @@ namespace Infohazard.PackageInstaller.Editor {
             Rect buttonRect = rect;
             buttonRect.xMin = buttonRect.xMax - 150;
             int oldStatus = OptionNone;
-            if (_installedPackages.TryGetValue(package.PackageIdentifier, out var packageInfo)) {
+            if (_installedPackages.TryGetValue(package.PackageIdentifier, out InstalledManagedPackageInfo packageInfo)) {
                 if (packageInfo.Info.source == PackageSource.Git) {
                     oldStatus = OptionGitURL;
                 } else if (packageInfo.Info.source == PackageSource.Embedded) {
@@ -342,7 +342,7 @@ namespace Infohazard.PackageInstaller.Editor {
                     _installedPackages[info.name] = pkg;
                 }
 
-                foreach (var pair in _installedPackages) {
+                foreach (KeyValuePair<string, InstalledManagedPackageInfo> pair in _installedPackages) {
                     foreach (string dependency in pair.Value.ManagedInfo.Dependencies) {
                         if (!_installedPackages.TryGetValue(dependency, out InstalledManagedPackageInfo info)) {
                             continue;
